@@ -1,4 +1,5 @@
-function search({ search, setSearch }) {
+import React from "react";
+function Search({ search, setSearch }) {
   return (
     <div className="search">
       <h2>Pesquisar</h2>
@@ -12,4 +13,4 @@ function search({ search, setSearch }) {
   );
 }
 
-export default search;
+export default Search;

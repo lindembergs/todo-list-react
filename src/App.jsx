@@ -1,8 +1,10 @@
+import React from "react";
 import "./App.css";
 import { useState } from "react";
-import Todo from "./components/todo";
-import TodoForm from "./components/todoForm";
+import Todo from "./components/Todo";
+import TodoForm from "./components/TodoForm";
 import Search from "./components/search";
+import Filter from "./components/filter";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -27,6 +29,9 @@ function App() {
   ]);
 
   const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("all");
+
+  const [sort, setSort] = useState("Asc");
 
   const addTodo = (text, category) => {
     const newTodos = [
@@ -50,9 +55,8 @@ function App() {
   };
 
   const completeTodo = (id) => {
-    const newTodos = [...todos];
-    newTodos.map((todo) =>
-      todo.id === id ? (todo.isCompleted = !todo.isCompleted) : todo
+    const newTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
     );
     setTodos(newTodos);
   };
@@ -61,8 +65,17 @@ function App() {
     <div className="app">
       <h1>Lista de tarefas</h1>
       <Search search={search} setSearch={setSearch} />
+      <Filter filter={filter} setFilter={setFilter} />
+
       <div className="todo-list">
         {todos
+          .filter((todo) =>
+            filter === "All"
+              ? true
+              : filter === "completed"
+              ? todo.isCompleted
+              : !todo.isCompleted
+          )
           .filter((todo) =>
             todo.text.toLocaleLowerCase().includes(search.toLocaleLowerCase())
           )
