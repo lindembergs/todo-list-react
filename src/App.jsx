@@ -1,10 +1,8 @@
-import  './App.css' 
-import  { useState } from 'react';
-import Todo from './components/todo'
-import TodoForm from './components/todoForm';
-import Search from './components/search'
-
-
+import "./App.css";
+import { useState } from "react";
+import Todo from "./components/todo";
+import TodoForm from "./components/todoForm";
+import Search from "./components/search";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -25,51 +23,61 @@ function App() {
       text: "Estudar React",
       category: "Estudos",
       isCompleted: false,
-    }
+    },
   ]);
 
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
 
   const addTodo = (text, category) => {
     const newTodos = [
       ...todos,
       {
-      id: Math.floor(Math.random() * 10000),
-      text,
-      category,
-      isCompleted: false,
-    }]
-    setTodos(newTodos)
-  }
+        id: Math.floor(Math.random() * 10000),
+        text,
+        category,
+        isCompleted: false,
+      },
+    ];
+    setTodos(newTodos);
+  };
 
   const removeTodo = (id) => {
-    const newTodos = [...todos]
-    const filteredTodos = newTodos.filter(todo => todo.id !== id ? todo : null);
-    setTodos(filteredTodos) 
-  }
+    const newTodos = [...todos];
+    const filteredTodos = newTodos.filter((todo) =>
+      todo.id !== id ? todo : null
+    );
+    setTodos(filteredTodos);
+  };
 
   const completeTodo = (id) => {
-    const newTodos = [...todos]
-   newTodos.map((todo) => 
-      todo.id === id ? (todo.isCompleted = !todo.isCompleted)  : todo
+    const newTodos = [...todos];
+    newTodos.map((todo) =>
+      todo.id === id ? (todo.isCompleted = !todo.isCompleted) : todo
     );
-    setTodos( newTodos );
-
-  }
+    setTodos(newTodos);
+  };
 
   return (
     <div className="app">
       <h1>Lista de tarefas</h1>
-      <Search search={search} setSearch={setSearch}/>
+      <Search search={search} setSearch={setSearch} />
       <div className="todo-list">
-        {todos.filter((todo)=> todo.text.toLocaleLowerCase().includes(search.toLocaleLowerCase())).map((todo) => (
-          <Todo key={todo.id}todo={todo} removeTodo={removeTodo} completeTodo={completeTodo}/>
-        ))}
+        {todos
+          .filter((todo) =>
+            todo.text.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+          )
+          .map((todo) => (
+            <Todo
+              key={todo.id}
+              todo={todo}
+              removeTodo={removeTodo}
+              completeTodo={completeTodo}
+            />
+          ))}
       </div>
-      <TodoForm addTodo={addTodo}/>
+      <TodoForm addTodo={addTodo} />
     </div>
   );
 }
 
 export default App;
-
