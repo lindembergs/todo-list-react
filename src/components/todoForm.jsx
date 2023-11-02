@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 
-function TodoForm() {
+function TodoForm( { addTodo } ) {
   const [value, setValue] = useState(""); // Correção: Adicionei "import React" para usar o React.
   const [category, setCategory] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("enviou form!");
+    if (!value || !category) return;
+    addTodo(value, category)
+    setValue("")
+    setCategory("") 
   };
 
   return (
