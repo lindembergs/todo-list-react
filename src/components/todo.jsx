@@ -1,6 +1,7 @@
-import React from 'react'
+import {React} from 'react'
 
 const todo = ({todo}) => {
+  
   return (
     <div className="todo" key={todo.id}>
     <div className="content">
@@ -9,8 +10,8 @@ const todo = ({todo}) => {
       
     </div>
     <div className='botoes'>
-      <button>completar</button>
-      <button>x</button>
+      <button className='complete'>completar</button>
+      <button className='remove'>x</button>
     </div>
   </div>
   )
