@@ -1,18 +1,18 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react"; // Certifique-se de importar o plugin React, se você estiver usando React
+import react from "@vitejs/plugin-react";
 import VitePWA from "vite-plugin-pwa";
 
 export default defineConfig({
   plugins: [
-    react(), // Certifique-se de adicionar o plugin React se você estiver usando React
+    react(),
     VitePWA({
-      registerType: "autoUpdate", // Define como você deseja que o Service Worker seja registrado
+      registerType: "autoUpdate",
 
-      // Configurações do PWA aqui
       manifest: {
-        name: "MeuApp",
-        short_name: "App",
-        description: "Uma descrição do aplicativo",
+        name: "Lista de tarefas",
+        short_name: "Lista de tarefas",
+        description:
+          "Aplicação para lembrar da lista de tarefas e saber as tarefas que já foram feitas.",
         theme_color: "#000000",
         background_color: "#ffffff",
         icons: [

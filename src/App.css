@@ -19,7 +19,11 @@ body {
 .app {
   max-width: 600px;
   margin: 0 auto 300px;
-  background-color: #efefef;
+  background: url("./icons/logoapp.jpg");
+  background-size: cover;
+  background-position: center;
+
+  /* background-color: #efefef; */
   padding: 20px 30px;
   border-radius: 10px;
 }
