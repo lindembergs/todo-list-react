@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function TodoForm({ addTodo }) {
-  const [value, setValue] = useState(""); // Correção: Adicionei "import React" para usar o React.
+  const [value, setValue] = useState("");
   const [category, setCategory] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,13 +18,10 @@ function TodoForm({ addTodo }) {
         <input
           type="text"
           placeholder="Digite a categoria"
-          value={value} // Correção: Adicionei o valor do input vinculado ao estado "value".
-          onChange={(e) => setValue(e.target.value)} // Correção: Adicionei um manipulador de alteração para atualizar o estado "value".
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
         />
-        <select
-          value={category} // Correção: Adicionei o valor do select vinculado ao estado "category".
-          onChange={(e) => setCategory(e.target.value)} // Correção: Adicionei um manipulador de alteração para atualizar o estado "category".
-        >
+        <select value={category} onChange={(e) => setCategory(e.target.value)}>
           <option value="">Selecione uma categoria</option>
           <option value="Trabalho">Trabalho</option>
           <option value="Pessoal">Pessoal</option>

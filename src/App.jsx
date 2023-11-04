@@ -1,10 +1,11 @@
 import React from "react";
 import "./App.css";
 import { useState } from "react";
+
 import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
 import Search from "./components/search";
-import Filter from "./components/filter";
+import Filter from "./components/Filter";
 
 function App() {
   const [todos, setTodos] = useState([

@@ -1,5 +1,5 @@
 import React from "react";
-function Filter(filter, setFilter) {
+function Filter({ filter, setFilter }) {
   return (
     <div className="filter">
       <h2>filtrar</h2>
