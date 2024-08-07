@@ -42,5 +42,5 @@ export default defineConfig({
     }),
   ],
   // Configuração da opção 'base'
-  base: "/todo-list-react", // Substitua pelo caminho da sua escolha
+  base: "https://todo-list-react-ximh.vercel.app/", // Substitua pelo caminho da sua escolha
 });
